@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_15_071242) do
+ActiveRecord::Schema.define(version: 2023_02_15_073218) do
 
   create_table "hawaiians", force: :cascade do |t|
     t.string "country"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2023_02_15_071242) do
     t.string "name"
     t.text "more"
     t.string "image"
+    t.string "image2"
   end
 
   create_table "users", force: :cascade do |t|

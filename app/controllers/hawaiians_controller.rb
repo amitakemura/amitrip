@@ -47,7 +47,7 @@ class HawaiiansController < ApplicationController
       end
       private
       def hawaiian_params
-        params.require(:hawaiian).permit(:name, :country, :city, :about, :more, :image, :lat, :lng, :overall, :level, :price, :where)
+        params.require(:hawaiian).permit(:name, :country, :city, :about, :more, :image, :lat, :lng, :overall, :level, :price, :where, :image2)
       end
      
 end
