@@ -1,0 +1,18 @@
+<%= form_for @hawaiian do |f| %>
+
+    <%= f.label :ホテル名 %>
+    <%= f.text_field :name, :size => 30 %>
+    <%= f.label :国名 %>
+    <%= f.text_field :country, :size => 30 %>
+    <%= f.label :周辺施設 %>
+    <%= f.text_field :city, :size => 30 %>
+    <%= f.label :ウェブサイトURL %>
+    <%= f.text_area :about, :size => "30x2" %>
+    <%= f.label :備考 %>
+    <%= f.text_area :more, :size => "30x2" %>
+    <%= f.label :画像 %>
+    <%= f.file_field :image %>
+
+    <%= f.submit "編集を終える" %>
+  <% end %>
+  

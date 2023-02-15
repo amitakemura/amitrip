@@ -1,0 +1,42 @@
+<h1>GeekHawaii</h1>
+<h3>Hawaii詳細</h3>
+<div class="hawaiian">
+  <p><%= @hawaiian.name %></p>
+  <p><%= @hawaiian.country %></p>
+  <p><%= @hawaiian.city %></p>
+  <p><%= @hawaiian.about %></p>
+  <p><%= @hawaiian.more %></p>
+  <p><%= link_to @hawaiian.user.name, user_path(@hawaiian.user.id) %></p>
+</div>
+<div id='map'></div>
+
+<style>
+#map {
+  height: 600px;
+  width: 100%;
+}
+</style>
+
+<!-- js部分 -->
+<script>
+//初期マップの設定
+let map
+let marker
+function initMap(){
+  geocoder = new google.maps.Geocoder()
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center:  {lat: <%= @hawaiian.lat %>, lng: <%= @hawaiian.lng %>},
+    zoom: 15,
+  });
+
+   marker = new google.maps.Marker({
+    position:  {lat: <%= @hawaiian.lat %>, lng: <%= @hawaiian.lng %>},
+    map: map
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7bPwdQayYI27OpTTMO2LTNi5WayspZvM&callback=initMap" async defer></script>
+
+<%= link_to "一覧に戻る", hawaiians_path %>
+<%= link_to "編集する", edit_hawaiian_path(@hawaiian.id) %>

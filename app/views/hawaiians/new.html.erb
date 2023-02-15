@@ -1,0 +1,200 @@
+<h1>Geekhawaii</h1>
+
+
+<%= link_to "一覧に戻る", hawaiians_path %>
+
+<h3>新規投稿ページ</h3>
+<%= form_with(model: @hawaiian, local: true) do |f| %>
+
+  <div class="field">
+  <%= f.label :ホテル名 %>
+  <%= f.text_field :name, :size => 30 %>
+</div>
+
+  <div class="field">
+    <%= f.label :国名 %>
+    <%= f.text_field :country, :size => 30 %>
+  </div>
+
+  <div class="field">
+  <%= f.label :周辺施設 %>
+  <%= f.text_field :city, :size => 30 %>
+</div>
+
+  <div class="field">
+    <%= f.label :ウェブサイトURL %>
+    <%= f.text_area :about, :size => "30x2" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :備考 %>
+    <%= f.text_area :more, :size => "30x2" %>
+  </div>
+
+<div class="field">
+  <%= f.label :画像 %>
+  <%= f.file_field :image %>
+</div>
+
+
+  <div class="hawaiian_form">
+
+ 
+
+  <h5>総合評価</h5>
+   <div class="post_form">
+    <%= f.radio_button :overall, 5 ,id: 'star1'%>
+    <label for="star1"><span class="text">最高</span>★</label>
+
+    <%= f.radio_button :overall, 4 ,id: 'star2'%>
+    <label for="star2"><span class="text">良い</span>★</label>
+
+    <%= f.radio_button :overall, 3 ,id: 'star3'%>
+    <label for="star3"><span class="text">普通</span>★</label>
+
+    <%= f.radio_button :overall, 2 ,id: 'star4'%>
+    <label for="star4"><span class="text">悪い</span>★</label>
+
+    <%= f.radio_button :overall, 1 ,id: 'star5'%>
+    <label for="star5"><span class="text">最悪</span>★</label>
+ </div>
+
+<h5>清潔度</h5>
+  <div class="post_form">
+    <%= f.radio_button :level,  5 ,id: 'star6'%>
+    <label for="star6"><span class="text">綺麗</span>★</label>
+
+    <%= f.radio_button :level,  4 ,id: 'star7'%>
+    <label for="star7"><span class="text">やや綺麗</span>★</label>
+
+    <%= f.radio_button :level, 3 ,id: 'star8'%>
+    <label for="star8"><span class="text">普通</span>★</label>
+
+    <%= f.radio_button :level , 2 ,id: 'star9'%>
+    <label for="star9"><span class="text">いまいち</span>★</label>
+
+    <%= f.radio_button :level , 1 ,id: 'star10'%>
+    <label for="star10"><span class="text">不潔</span>★</label>
+ </div>
+
+ <h5>金額</h5>
+  <div class="post_form">
+    <%= f.radio_button :price,  5 ,id: 'star11'%>
+    <label for="star11"><span class="text">安い</span>★</label>
+
+    <%= f.radio_button :price,  4 ,id: 'star12'%>
+    <label for="star12"><span class="text">やや安い</span>★</label>
+
+    <%= f.radio_button :price, 3 ,id: 'star13'%>
+    <label for="star13"><span class="text">普通</span>★</label>
+
+    <%= f.radio_button :price , 2 ,id: 'star14'%>
+    <label for="star14"><span class="text">やや高い</span>★</label>
+
+    <%= f.radio_button :price , 1 ,id: 'star15'%>
+    <label for="star15"><span class="text">高い</span>★</label>
+ </div>
+
+ <h5>立地</h5>
+ <div class="post_form">
+   <%= f.radio_button :where,  5 ,id: 'star16'%>
+   <label for="star16"><span class="text">便利</span>★</label>
+
+   <%= f.radio_button :where,  4 ,id: 'star17'%>
+   <label for="star17"><span class="text">やや便利</span>★</label>
+
+   <%= f.radio_button :where, 3 ,id: 'star18'%>
+   <label for="star18"><span class="text">普通</span>★</label>
+
+   <%= f.radio_button :where , 2 ,id: 'star19'%>
+   <label for="star19"><span class="text">やや不便</span>★</label>
+
+   <%= f.radio_button :where , 1 ,id: 'star20'%>
+   <label for="star20"><span class="text">不便</span>★</label>
+</div>
+
+<div class="actions">
+<%= f.label :lat,"緯度" %>
+<%= f.text_field :lat,:value =>"緯度", id: :lat %>
+<%= f.label :lng,"経度" %>
+<%= f.text_field :lng,:value =>"経度", id: :lng %>
+
+</div>
+
+<h2>Map</h2>
+
+<input id="address" type="textbox" value="GeekSalon">
+<input type="button" value="検索" onclick="codeAddress()">
+<p>マーカーをドラック＆ドロップで位置の調整ができます。<p>
+<div id='map'></div>
+
+<style>
+#map {
+height: 600px;
+width: 600px;
+}
+</style>
+
+<script>
+//初期マップの設定
+let map
+let marker
+function initMap(){
+geocoder = new google.maps.Geocoder()
+
+map = new google.maps.Map(document.getElementById('map'), {
+center:  {lat: 35.6803997, lng:139.7690174},  //東京
+zoom: 15,
+
+});
+}
+
+//検索後のマップ作成
+let geocoder
+let aft
+function codeAddress(){
+let inputAddress = document.getElementById('address').value;
+geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+if (status == 'OK') {
+    //マーカーが複数できないようにする
+    if (aft == true){
+        marker.setMap(null);
+    }
+
+    //新しくマーカーを作成する
+    map.setCenter(results[0].geometry.location);
+        marker = new google.maps.Marker({
+        map: map,
+        position: results[0].geometry.location,
+        draggable: true	// ドラッグ可能にする
+    });
+
+    //二度目以降か判断
+    aft = true
+
+    //検索した時に緯度経度を入力する
+    document.getElementById('lat').value = results[0].geometry.location.lat();
+    document.getElementById('lng').value = results[0].geometry.location.lng();
+
+    // マーカーのドロップ（ドラッグ終了）時のイベント
+    google.maps.event.addListener( marker, 'dragend', function(ev){
+        // イベントの引数evの、プロパティ.latLngが緯度経度
+        document.getElementById('lat').value = ev.latLng.lat();
+        document.getElementById('lng').value = ev.latLng.lng();
+    });
+} else {
+  alert('該当する結果がありませんでした：' + status);
+}
+});   
+}
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7bPwdQayYI27OpTTMO2LTNi5WayspZvM&callback=initMap" async defer></script>
+
+
+
+  </div>
+  <%= f.submit '投稿'%>
+
+
+<% end %>
