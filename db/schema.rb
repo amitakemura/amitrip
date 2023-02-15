@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 2023_02_15_073218) do
     t.integer "where"
     t.string "name"
     t.text "more"
-    t.string "image"
     t.string "image2"
   end
 
