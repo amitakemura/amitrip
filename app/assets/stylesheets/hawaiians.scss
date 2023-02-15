@@ -113,7 +113,7 @@
     left: 0px;
     top: 0px;
     border-radius: 0px;
-    background-image: image-url("/assets/top.jpg");
+    background-image: image-url('<%= asset_path('top.jpg') %>');
     background-size: cover;
     background-repeat: no-repeat;
 
