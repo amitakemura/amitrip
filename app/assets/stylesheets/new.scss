@@ -1,0 +1,41 @@
+.sinki{
+    margin: 50px auto;
+    width: 70%;
+    border: solid #d3def1;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #d3def1;
+} 
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 50px;
+  }
+
+input[type="text"] {
+    width: 95%;
+    height: 40px;
+  }
+.lastsubmit input[type="submit"] {
+    width: 50%;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-left: 25%;
+  }
+
+  .submit{
+    text-align: center;
+
+  }
+
+  .post_form {
+    position: relative;
+    display: inline-block;
+    font-size: 25px;
+    display: flex;
+    flex-direction: row-reverse; /* 表示を反転 */
+    justify-content: center;
+
+  }

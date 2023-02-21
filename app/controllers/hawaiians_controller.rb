@@ -1,15 +1,13 @@
 class HawaiiansController < ApplicationController
     before_action :authenticate_user!
     def index
-        @hawaiians = Hawaiian.all
-        if params[:search] == nil
-            @hawaiians= Hawaiian.all
-          elsif params[:search] == ''
-            @hawaiians= Hawaiian.all
+        if params[:search] != nil && params[:search] != ''
+            search = params[:search]
+            @hawaiians = Hawaiian.where('country LIKE ? OR city LIKE ?',"%#{search}%", "%#{search}%")
           else
-            #部分検索
-            @hawaiians = Hawaiian.where("country LIKE ? ",'%' + params[:search] + '%')
+            @hawaiians= Hawaiian.all
         end
+
     end
     def new
         @hawaiian = Hawaiian.new

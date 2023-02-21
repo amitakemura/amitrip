@@ -1,12 +1,23 @@
-<h1>GeekHawaii</h1>
+<h1>ホテル詳細</h1>
 <h3>Hawaii詳細</h3>
-<div class="hawaiian">
-  <p><%= @hawaiian.name %></p>
-  <p><%= @hawaiian.country %></p>
-  <p><%= @hawaiian.city %></p>
-  <p><%= @hawaiian.about %></p>
-  <p><%= @hawaiian.more %></p>
-  <p><%= link_to @hawaiian.user.name, user_path(@hawaiian.user.id) %></p>
+<div class="hawaiian-show">
+  <div class="gazou">
+  <p><%= image_tag @hawaiian.image2_url, size: "800x500" if @hawaiian.image2? %></p>
+  </div>
+  <div class="sonota">
+  
+  <p>ホテル名 :<%= @hawaiian.name %></p>
+  
+  <p>国 :<%= @hawaiian.country %></p>
+  
+  <p>付近のスポット :<%= @hawaiian.city %></p>
+  
+  <p>ホテルURL :<%= @hawaiian.about %></p>
+  
+  <p>詳細 :<%= @hawaiian.more %></p>
+ 
+  <p> 投稿者 :<%= link_to @hawaiian.user.name, user_path(@hawaiian.user.id) %></p>
+  </div>
 </div>
 <div id='map'></div>
 

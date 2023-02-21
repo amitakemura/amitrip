@@ -23,7 +23,7 @@
 
 <div class="hawaiians-top">
 
-<img src='<%= asset_path('top.png') %>'width="100%"/>
+<img src='<%= asset_path('top.jpg') %>'width="100%"/>
 
 
 <div class="hawaiian-link">
@@ -40,7 +40,16 @@
 
 <h2>ホテル選びにもこだわりをもってみませんか</h2>
 
-<h2>より良い思い出作りに貢献します</h2>
+<h2>より良い思い出作りをお手伝いします</h2>
+</div>
+
+
+<div class="toukou">
+<%=link_to "ホテルを紹介する【投稿】", new_hawaiian_path %>
+</div>
+
+<div class="toukou">
+<%=button_to "ホテルを紹介する【投稿】", {controller: 'hawaiians',action:'new'},{method: :get, class: "toukou-button"} %>
 </div>
 
 <div class="key">
@@ -61,7 +70,6 @@
 </div>
 <% end %>
 
-<%= link_to "ホテルを紹介する【投稿】", new_hawaiian_path %>
 
 
 <div class="midle">
@@ -69,67 +77,70 @@
 </div>
 
 <div class="hawaiians-container">
-
-
-
+<div class="hawaii-container">
   <% @hawaiians.each do |t| %>
     <div class="hawaiian">
 
-    <%= image_tag t.image2_url, size: "250x200" if t.image2? %>
+      <%= image_tag t.image2_url, size: "400x250" if t.image2? %>
+      </br>
+      ホテル名 :
       <%= t.name %>
+      </br>
+      国 :
       <%= t.country %>
+      </br>
+      付近のスポット :
       <%= t.city %>
+      </br>
       <%= link_to t.user.name, user_path(t.user.id) %>
-      
+        
       <%= link_to "詳細へ", hawaiian_path(t.id) %>
-   
+  
       <% if user_signed_in? && current_user.id == t.user_id %>
-      <%= link_to "編集する", edit_hawaiian_path(t.id) %>
-      <%= button_to "削除する", hawaiian_path(t.id), method: :delete %>
-    <% end %> 
+        <%= link_to "編集する", edit_hawaiian_path(t.id) %>
+        <%= button_to "削除する", hawaiian_path(t.id), method: :delete %>
+      <% end %> 
 
+      <div>
+      <h2>総合評価：
+      <span class="star-rating">
+        <span class="star-rating-front" style="width: <%= getPercent(t.overall) %>%;">★★★★★</span>
+        <span class="star-rating-back">★★★★★</span>
+      </span> 
+      </h2>
+      </div>
+
+      <div>
+      <h2>清潔度：
+      <span class="star-rating">
+        <span class="star-rating-front" style="width: <%= getPercent(t.level) %>%;">★★★★★</span>
+        <span class="star-rating-back">★★★★★</span>
+      </span>
+      </h2>
+      </div>
+
+      <div>
+      <h2>金額：
+      <span class="star-rating">
+        <span class="star-rating-front" style="width: <%= getPercent(t.price) %>%;">★★★★★</span>
+        <span class="star-rating-back">★★★★★</span>
+      </span>
+      </h2>
+      </div>
+
+      <div>
+      <h2>立地：
+      <span class="star-rating">
+        <span class="star-rating-front" style="width: <%= getPercent(t.where) %>%;">★★★★★</span>
+        <span class="star-rating-back">★★★★★</span>
+      </span>
+      </h2>
+      </div>
+
+    </div>
+
+  <% end %>
 </div>
-
-
-<div>
-<h2>総合評価：
-<span class="star-rating">
-   <span class="star-rating-front" style="width: <%= getPercent(t.overall) %>%;">★★★★★</span>
-   <span class="star-rating-back">★★★★★</span>
-</span> 
-</h2>
-</div>
-
-<div>
-<h2>清潔度：
-<span class="star-rating">
-   <span class="star-rating-front" style="width: <%= getPercent(t.level) %>%;">★★★★★</span>
-   <span class="star-rating-back">★★★★★</span>
-</span>
-</h2>
-</div>
-
-<div>
-<h2>金額：
-<span class="star-rating">
-   <span class="star-rating-front" style="width: <%= getPercent(t.price) %>%;">★★★★★</span>
-   <span class="star-rating-back">★★★★★</span>
-</span>
-</h2>
-</div>
-
-<div>
-<h2>立地：
-<span class="star-rating">
-   <span class="star-rating-front" style="width: <%= getPercent(t.where) %>%;">★★★★★</span>
-   <span class="star-rating-back">★★★★★</span>
-</span>
-</h2>
-</div>
-
-
-
-<% end %>
 </div>
 
 <div id='map'></div>

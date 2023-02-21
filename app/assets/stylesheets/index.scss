@@ -1,0 +1,56 @@
+.toukou {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    text-align: center;
+    
+}
+
+
+.toukou-button {
+    position: relative;
+    padding: 1rem;
+    border: 3px solid #3ba768;
+    background-color: #FAEDD1;
+    color: #3ba768;
+    font-weight: bold;
+    font-size: medium;
+    text-align: center;
+    transition: 500ms;
+}
+
+.toukou-button:hover {
+    box-shadow: 0 0 2px #3ba768, 0 0 5px #3ba768, 0 0 15px #3ba768, 0 0 25px 60d1c0;
+    border: 3px solid #aeeeb4;
+    color: white;
+    text-shadow: 0 0 5px #3ba768, 0 0 10px #3ba768, 0 0 15px #3ba768;
+}
+
+
+
+.toukou-link :hover{
+    width: 100%;
+}
+
+.hawaiians-container{
+    display: flex;
+    background-size: cover;
+    background-color:#F2DFBA;
+    justify-content: center;
+
+}
+
+.hawaii-container{   
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hawaiian {
+    background-color: white;
+    margin: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    
+}
+ 

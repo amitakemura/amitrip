@@ -7,14 +7,14 @@
 <div class="hawaiian">
 
     <% @user.hawaiians.each do |t| %>
-   
-        <%= t.name %>
-      <%= t.country %>
-      <%= t.city %>
-      <%= t.about %>
-      <%= t.more %>
-      <%= image_tag t.image_url, size: "250x200" if t.image? %>
+        <%= image_tag t.image2_url, size: "250x200" if t.image2? %>
 
+        <%= t.name %>
+        <%= t.country %>
+        <%= t.city %>
+        <%= t.about %>
+        <%= t.more %>
+     
      <% end %> 
 
 </div>

@@ -1,45 +1,57 @@
-<h1>Geekhawaii</h1>
+<h1>投稿ページ</h1>
 
 
 <%= link_to "一覧に戻る", hawaiians_path %>
 
-<h3>新規投稿ページ</h3>
+<div class="sinki">
+
+<div class="hawaiian_form">
+<p class="title">新規投稿ページ</p>
 <%= form_with(model: @hawaiian, local: true) do |f| %>
 
   <div class="field">
   <%= f.label :ホテル名 %>
+  <br>
   <%= f.text_field :name, :size => 30 %>
+  <br>
 </div>
 
   <div class="field">
     <%= f.label :国名 %>
+    <br>
     <%= f.text_field :country, :size => 30 %>
+    <br>
   </div>
 
   <div class="field">
   <%= f.label :周辺施設 %>
+  <br>
   <%= f.text_field :city, :size => 30 %>
+  <br>
 </div>
 
   <div class="field">
     <%= f.label :ウェブサイトURL %>
+    <br>
     <%= f.text_area :about, :size => "30x2" %>
+    <br>
   </div>
 
   <div class="field">
     <%= f.label :備考 %>
+    <br>
     <%= f.text_area :more, :size => "30x2" %>
+    <br>
   </div>
 
 <div class="field">
   <%= f.label :画像 %>
+  <br>
   <%= f.file_field :image2 %>
+  <br>
 </div>
 
-
-  <div class="hawaiian_form">
-
- 
+</div> 
 
   <h5>総合評価</h5>
    <div class="post_form">
@@ -113,13 +125,7 @@
    <label for="star20"><span class="text">不便</span>★</label>
 </div>
 
-<div class="actions">
-<%= f.label :lat,"緯度" %>
-<%= f.text_field :lat,:value =>"緯度", id: :lat %>
-<%= f.label :lng,"経度" %>
-<%= f.text_field :lng,:value =>"経度", id: :lng %>
 
-</div>
 
 <h2>Map</h2>
 
@@ -191,10 +197,20 @@ if (status == 'OK') {
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7bPwdQayYI27OpTTMO2LTNi5WayspZvM&callback=initMap" async defer></script>
 
-
+<div class="actions">
+<%= f.label :lat,"緯度" %>
+<%= f.text_field :lat,:value =>"緯度", id: :lat %>
+<%= f.label :lng,"経度" %>
+<%= f.text_field :lng,:value =>"経度", id: :lng %>
+</div>
 
   </div>
+  <div class="lastsubmit">
   <%= f.submit '投稿'%>
+<br>
+</div>
+</div>
+
 
 
 <% end %>
