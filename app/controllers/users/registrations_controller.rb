@@ -67,7 +67,7 @@ end
 
 #アカウント編集後のリダイレクト先
 def after_update_path_for(resource)
-  user_path(current_user.id)
+  hawaiians_path
 end
 
 end
