@@ -1,11 +1,25 @@
+.haikei{
+    height: 100%;
+  width: 100%;
+  background-image: url(/assets/haikei6.jpg);
+  background-color: rgba(255, 255, 255, 0.4);
+  background-blend-mode: lighten;
+  background-size: 100% 100%;
+}
+
 .sinki{
     margin: 50px auto;
     width: 70%;
-    border: solid #d3def1;
+    border: solid #f1e5d3;
     border-radius: 10px;
     text-align: center;
-    background-color: #d3def1;
+    background-color: #eee4d5;
+    opacity: 0.8;
 } 
+
+.hawaiian_form h5 {
+    font-size: 15px;
+}
 
 .title {
     font-size: 32px;
@@ -16,6 +30,7 @@
 input[type="text"] {
     width: 95%;
     height: 40px;
+    border-radius: 10px;
   }
 .lastsubmit input[type="submit"] {
     width: 50%;
@@ -37,5 +52,55 @@ input[type="text"] {
     display: flex;
     flex-direction: row-reverse; /* 表示を反転 */
     justify-content: center;
-
   }
+
+
+  .button {
+    display       : inline-block;
+    border-radius : 4%;          /* 角丸       */
+    font-size     : 18pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 12px 22px;   /* 余白       */
+    background    : #8f5f21d1;     /* 背景色     */
+    color         : #FAEDD1;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    opacity       : 1;           /* 透明度     */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 4px 4px 3px #868686;  /* 影の設定 */
+    opacity: 0.8;
+    border-radius: 10px;
+  }
+  .button:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    opacity       : 1;         /* カーソル時透明度 */
+  }
+
+.itirani {
+    width: 100%;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.itirani-button {
+    display       : inline-block;
+    border-radius : 4%;          /* 角丸       */
+    font-size     : 10pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 12px 22px;   /* 余白       */
+    background    : #8f5f21d1;     /* 背景色     */
+    color         : #FAEDD1;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    opacity       : 1;           /* 透明度     */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 4px 4px 3px #868686;  /* 影の設定 */
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+.itirani-button:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    opacity       : 1;         /* カーソル時透明度 */
+}
+

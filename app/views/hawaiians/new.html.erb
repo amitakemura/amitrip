@@ -1,12 +1,15 @@
-<h1>投稿ページ</h1>
-
+<div class="haikei">
+<div class="itirani">
+<h1>新規投稿ページ</h1>
 
 <%= link_to "一覧に戻る", hawaiians_path %>
+<%=button_to "一覧に戻る", {controller: 'hawaiians',action:'index'},{method: :get, class: "itirani-button"} %>
+</div>
 
 <div class="sinki">
 
 <div class="hawaiian_form">
-<p class="title">新規投稿ページ</p>
+<p class="title">ホテルを紹介</p>
 <%= form_with(model: @hawaiian, local: true) do |f| %>
 
   <div class="field">
@@ -14,7 +17,7 @@
   <br>
   <%= f.text_field :name, :size => 30 %>
   <br>
-</div>
+  </div>
 
   <div class="field">
     <%= f.label :国名 %>
@@ -28,7 +31,7 @@
   <br>
   <%= f.text_field :city, :size => 30 %>
   <br>
-</div>
+  </div>
 
   <div class="field">
     <%= f.label :ウェブサイトURL %>
@@ -51,10 +54,8 @@
   <br>
 </div>
 
-</div> 
-
-  <h5>総合評価</h5>
-   <div class="post_form">
+<h5>総合評価</h5>
+  <div class="post_form">
     <%= f.radio_button :overall, 5 ,id: 'star1'%>
     <label for="star1"><span class="text">最高</span>★</label>
 
@@ -69,7 +70,7 @@
 
     <%= f.radio_button :overall, 1 ,id: 'star5'%>
     <label for="star5"><span class="text">最悪</span>★</label>
- </div>
+  </div>
 
 <h5>清潔度</h5>
   <div class="post_form">
@@ -87,7 +88,7 @@
 
     <%= f.radio_button :level , 1 ,id: 'star10'%>
     <label for="star10"><span class="text">不潔</span>★</label>
- </div>
+  </div>
 
  <h5>金額</h5>
   <div class="post_form">
@@ -105,10 +106,10 @@
 
     <%= f.radio_button :price , 1 ,id: 'star15'%>
     <label for="star15"><span class="text">高い</span>★</label>
- </div>
+  </div>
 
- <h5>立地</h5>
- <div class="post_form">
+<h5>立地</h5>
+  <div class="post_form">
    <%= f.radio_button :where,  5 ,id: 'star16'%>
    <label for="star16"><span class="text">便利</span>★</label>
 
@@ -123,9 +124,9 @@
 
    <%= f.radio_button :where , 1 ,id: 'star20'%>
    <label for="star20"><span class="text">不便</span>★</label>
-</div>
+  </div>
 
-
+</div> 
 
 <h2>Map</h2>
 
@@ -207,10 +208,11 @@ if (status == 'OK') {
   </div>
   <div class="lastsubmit">
   <%= f.submit '投稿'%>
-<br>
+  <input type="submit" value="投稿" class="button">
+  <br>
 </div>
 </div>
-
-
 
 <% end %>
+
+</div>

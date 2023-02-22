@@ -48,28 +48,28 @@
 <%=link_to "ホテルを紹介する【投稿】", new_hawaiian_path %>
 </div>
 
+<a id="anc"></a>
 <div class="toukou">
 <%=button_to "ホテルを紹介する【投稿】", {controller: 'hawaiians',action:'new'},{method: :get, class: "toukou-button"} %>
 </div>
 
 <div class="key">
-<a id="anc"></a>
+<div class="kotoba">
 国名や付近のスポットで検索<br>
+</div>
 
 <%= form_tag({controller:"hawaiians",action:"index"}, method: :get) do %>
 
    
-   <div class="search-box">
+<div class="search-box">
   
-    <%= text_field_tag :search %>
-
+  <%= text_field_tag :search%>
   <%= button_tag type:"submmit" do %> 
         <i class="fas fa-search fa-fw"></i>
   <%end%>
 
 </div>
 <% end %>
-
 
 
 <div class="midle">
@@ -92,14 +92,9 @@
       付近のスポット :
       <%= t.city %>
       </br>
+      投稿者 :
       <%= link_to t.user.name, user_path(t.user.id) %>
-        
-      <%= link_to "詳細へ", hawaiian_path(t.id) %>
-  
-      <% if user_signed_in? && current_user.id == t.user_id %>
-        <%= link_to "編集する", edit_hawaiian_path(t.id) %>
-        <%= button_to "削除する", hawaiian_path(t.id), method: :delete %>
-      <% end %> 
+      </br>
 
       <div>
       <h2>総合評価：
@@ -137,6 +132,12 @@
       </h2>
       </div>
 
+      <%= link_to "詳細へ", hawaiian_path(t.id) %>
+      <% if user_signed_in? && current_user.id == t.user_id %>
+        <%= link_to "編集する", edit_hawaiian_path(t.id) %>
+        </br>
+        <%= button_to "削除する", hawaiian_path(t.id), method: :delete %>
+      <% end %> 
     </div>
 
   <% end %>

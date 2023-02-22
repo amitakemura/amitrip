@@ -135,13 +135,14 @@
     padding: 9px 15px 10px 0;
     position: relative;
     font-family: 'Noto Serif JP', serif;
+    
 }
 
 
 .hawaiians-yet{
     height:700px;
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 140px;
+    padding-bottom: 110px;
     background-color: white;
 }
 
@@ -163,12 +164,16 @@
     background-color:#F2DFBA;
 }
 
+.kotoba {
+    margin-left: 13%;
+    font-size: 16px;
+}
+
 .search-box {
     position: relative;
     display: flex;
     width: 75%;
     left: 12.5%;
-    
 }
 
 .search-box input[type="text"] {
@@ -181,7 +186,7 @@
 
 .search-box button {
     position: absolute;
-    top: -0.05rem;
+    top: 0.5rem;
     right: 0;
     cursor: pointer;
     padding: .8rem .9rem .8rem .8rem;
@@ -260,7 +265,9 @@
     color: #ffcc00;
   }
 
-
+.hawaiian h2 {
+    font-size: 18px;
+}
 
 /*　以下一覧ページの星用のCSS　*/
 
@@ -269,7 +276,7 @@
     display: inline-block;
     width: 5em;
     height: 1em;
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .star-rating-front {

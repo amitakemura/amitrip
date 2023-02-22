@@ -10,9 +10,9 @@
 .toukou-button {
     position: relative;
     padding: 1rem;
-    border: 3px solid #3ba768;
+    border: 3px solid #b48446;
     background-color: #FAEDD1;
-    color: #3ba768;
+    color: #b48446;
     font-weight: bold;
     font-size: medium;
     text-align: center;
@@ -20,10 +20,10 @@
 }
 
 .toukou-button:hover {
-    box-shadow: 0 0 2px #3ba768, 0 0 5px #3ba768, 0 0 15px #3ba768, 0 0 25px 60d1c0;
-    border: 3px solid #aeeeb4;
+    box-shadow: 0 0 2px #b48446, 0 0 5px #b48446, 0 0 15px #b48446, 0 0 25px 60d1c0;
+    border: 3px solid #debb85;
     color: white;
-    text-shadow: 0 0 5px #3ba768, 0 0 10px #3ba768, 0 0 15px #3ba768;
+    text-shadow: 0 0 5px #b48446, 0 0 10px #b48446, 0 0 15px #b48446;
 }
 
 
@@ -51,6 +51,6 @@
     margin: 40px;
     padding: 20px;
     border-radius: 10px;
-    
+    font-size: 17px;
 }
  
