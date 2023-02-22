@@ -44,10 +44,6 @@
 </div>
 
 
-<div class="toukou">
-<%=link_to "ホテルを紹介する【投稿】", new_hawaiian_path %>
-</div>
-
 <a id="anc"></a>
 <div class="toukou">
 <%=button_to "ホテルを紹介する【投稿】", {controller: 'hawaiians',action:'new'},{method: :get, class: "toukou-button"} %>
@@ -133,9 +129,9 @@
       </div>
 
       <%= link_to "詳細へ", hawaiian_path(t.id) %>
+      </br>
       <% if user_signed_in? && current_user.id == t.user_id %>
         <%= link_to "編集する", edit_hawaiian_path(t.id) %>
-        </br>
         <%= button_to "削除する", hawaiian_path(t.id), method: :delete %>
       <% end %> 
     </div>

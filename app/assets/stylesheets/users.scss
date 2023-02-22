@@ -3,9 +3,44 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .login {
+    height: 100%;
+    width: 100%;
     text-align: center;
+    background-blend-mode: lighten;
+    background-size: 100% 100%;
+    background-color:#F2DFBA;
+    padding-top: 30px;
+    padding-bottom: 100%;
 }
 
-.sinki {
+.loginlist {
+    margin: 50px auto;
+    width: 70%;
+    border: solid #f1e5d3;
+    border-radius: 10px;
     text-align: center;
+    background-color: #eee4d5;
+    opacity: 0.8;
+    padding: 50px;
+}
+
+.sinkitouroku {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-blend-mode: lighten;
+    background-size: 100% 100%;
+    padding-top: 30px;
+    padding-bottom: 100%;
+}
+
+.sinkilist {
+    margin: 50px auto;
+    width: 70%;
+    border: solid #f1e5d3;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #eee4d5;
+    opacity: 0.8;
+    padding: 50px;
 }

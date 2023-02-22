@@ -2,7 +2,6 @@
 <div class="itirani">
 <h1>新規投稿ページ</h1>
 
-<%= link_to "一覧に戻る", hawaiians_path %>
 <%=button_to "一覧に戻る", {controller: 'hawaiians',action:'index'},{method: :get, class: "itirani-button"} %>
 </div>
 
@@ -207,7 +206,6 @@ if (status == 'OK') {
 
   </div>
   <div class="lastsubmit">
-  <%= f.submit '投稿'%>
   <input type="submit" value="投稿" class="button">
   <br>
 </div>

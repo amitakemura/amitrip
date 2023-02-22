@@ -2,7 +2,6 @@
 <h1>ホテル詳細</h1>
 </div>
 <div class="shousai">
-<%= link_to "一覧に戻る", hawaiians_path %>
 <%=button_to "一覧に戻る", {controller: 'hawaiians',action:'index'},{method: :get, class: "shousai-button"} %>
 </div>
 
@@ -23,11 +22,13 @@
   <p>詳細 :<%= @hawaiian.more %></p>
  
   <p> 投稿者 :<%= link_to @hawaiian.user.name, user_path(@hawaiian.user.id) %></p>
-
+  <% if user_signed_in? && current_user.id == @hawaiian.user_id %>
   <p><%= link_to "編集する", edit_hawaiian_path(@hawaiian.id) %></p>
-
+  <p><%= button_to "削除する", hawaiian_path(@hawaiian.id), method: :delete %></p>
+  <% end %>
   </div>
 </div>
+
 <div id='map'></div>
 
 <style>
